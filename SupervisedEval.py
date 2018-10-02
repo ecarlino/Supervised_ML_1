@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from InterestingData import SomeInterestingData
+from AbstractData import SomeInterestingData
 
 
 def gen_LearnCurve(algo, title, X, y, train_sizes=np.linspace(.1, 1.0, 5)):
@@ -265,6 +265,11 @@ def gen_ValidationCurves(interestingData):
 
 def main():
 
+    # run all for IRIS - 
+    anInterestingDS = SomeInterestingData('Iris', contNum_Style='Standard', printDataDesc=True)
+    run_InitTests(anInterestingDS)
+    gen_ValidationCurves(anInterestingDS)
+
     # run all for BCancer - Uniform
     anInterestingDS = SomeInterestingData('BCancer', contNum_Style='Uniform', printDataDesc=True)
     run_InitTests(anInterestingDS)
@@ -297,9 +302,6 @@ def main():
     run_InitTests(anInterestingDS)
 
 
-    # run all for IRIS - 
-    anInterestingDS = SomeInterestingData('Iris', contNum_Style='Standard', printDataDesc=True)
-    run_InitTests(anInterestingDS)
     '''
 
 if __name__ == '__main__':
